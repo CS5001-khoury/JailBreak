@@ -18,7 +18,7 @@ from lock_tools import COMBO, PATTERN, MAX_PATTERN_SIZE, check_solution, is_open
 # for example:
 #  if get_lock_type(val) == COMBO:
 #      do something
-
+# get_single_combo(), and get_single_pattern() will help with interactive testing (see readme)
 
 def check_combo_lock(lock_id: int) -> int:
     """
@@ -32,6 +32,8 @@ def check_combo_lock(lock_id: int) -> int:
         (int): the solution to the lock, or minus 1 if not found
     """
     pass
+
+# you may find it easier to add another function to build the pattern first..
 
 def check_pattern_lock(lock_id: int) -> str:
     """
