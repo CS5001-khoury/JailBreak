@@ -31,17 +31,17 @@ class TestJailBreak(unittest.TestCase):
         lock_tools.CURRENT_DOOR.append(lock_tools.Lock(lock_tools.PATTERN, PATTERNS[7]))
 
 
-    def test_check_combo_lock(self) -> None:
-        """Tests the check_combo_lock function with a variety of inputs."""
-        self.assertEqual(jailbreak.check_combo_lock(0), 0)
-        self.assertEqual(jailbreak.check_combo_lock(1), 10)
-        self.assertEqual(jailbreak.check_combo_lock(2), 100)
+    def test_unlock_combo_lock(self) -> None:
+        """Tests the unlock_combo_lock function with a variety of inputs."""
+        self.assertEqual(jailbreak.unlock_combo_lock(0), 0)
+        self.assertEqual(jailbreak.unlock_combo_lock(1), 10)
+        self.assertEqual(jailbreak.unlock_combo_lock(2), 100)
 
-    def test_check_pattern_lock(self) -> None:
-        """Tests the check_pattern_lock function with a variety of inputs."""
-        self.assertEqual(jailbreak.check_pattern_lock(3).strip(), PATTERNS[2].strip())
-        self.assertEqual(jailbreak.check_pattern_lock(4).strip(), PATTERNS[0].strip())
-        self.assertEqual(jailbreak.check_pattern_lock(5).strip(), PATTERNS[7].strip())
+    def test_unlock_pattern_lock(self) -> None:
+        """Tests the unlock_pattern_lock function with a variety of inputs."""
+        self.assertEqual(jailbreak.unlock_pattern_lock(3).strip(), PATTERNS[2].strip())
+        self.assertEqual(jailbreak.unlock_pattern_lock(4).strip(), PATTERNS[0].strip())
+        self.assertEqual(jailbreak.unlock_pattern_lock(5).strip(), PATTERNS[7].strip())
     def test_open_door(self) -> None:
         """Tests the open_door function with a variety of inputs."""
         self.assertTrue(jailbreak.open_door(len(lock_tools.CURRENT_DOOR)))

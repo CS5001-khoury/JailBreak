@@ -20,7 +20,7 @@ from lock_tools import COMBO, PATTERN, MAX_PATTERN_SIZE, check_solution, is_open
 #      do something
 # get_single_combo(), and get_single_pattern() will help with interactive testing (see readme)
 
-def check_combo_lock(lock_id: int) -> int:
+def unlock_combo_lock(lock_id: int) -> int:
     """
     Checks possible combinations for a combo lock, until
     the correct solution is found.
@@ -35,7 +35,7 @@ def check_combo_lock(lock_id: int) -> int:
 
 # you may find it easier to add another function to build the pattern first..
 
-def check_pattern_lock(lock_id: int) -> str:
+def unlock_pattern_lock(lock_id: int) -> str:
     """
     Checks possible patterns for a pattern lock, until
     the correct solution is found.

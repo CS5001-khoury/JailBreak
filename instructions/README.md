@@ -31,8 +31,8 @@ The program has the following flow to it:
 * main - gets a series of door (randomly generated) with locks on them.
   * for each door it calls open_door(int) where int is the number of locks on the door
 * open_door - loops from 0 until n getting the type of the lock
-  * based on the type of the lock calls check_combo_lock or check_pattern_lock
-* check_combo_lock / check_pattern_lock keep searching until they find the solution respectively. 
+  * based on the type of the lock calls unlock_combo_lock or unlock_pattern_lock
+* unlock_combo_lock / unlock_pattern_lock keep searching until they find the solution respectively. 
 
 ### open_door Flow Chart
 
@@ -46,8 +46,8 @@ graph LR
     check -- "True" --> lt["get_lock_type(counter)"]
     lt --> combo{"lock_type == COMBO"}
     lt --> pattern{"lock_type == PATTERN"}
-    combo -- True -->  check_c["check_combo_lock(counter)"]
-    pattern -- True --> pattern_c["check_pattern_lock(counter)"]
+    combo -- True -->  check_c["unlockcombo_lock(counter)"]
+    pattern -- True --> pattern_c["unlockpattern_lock(counter)"]
     check_c --> T["add 1 to counter"]
     pattern_c -->T
     T --> check
@@ -58,15 +58,15 @@ graph LR
 > to keep it as simple as possible. This project gets really difficult
 > if you don't try to break it up!
 
-### check_combo_lock(int)
+### unlockcombo_lock(int)
 
-The function check_combo_lock looks through all possible combinations. What you know is that the combinations are all greater than or equal to 0 and are whole numbers.
+The function unlockcombo_lock looks through all possible combinations. What you know is that the combinations are all greater than or equal to 0 and are whole numbers.
 
-:fire: Task: Think through the pattern, and draw a flow chart for your loop inside of check_combo_lock. 
+:fire: Task: Think through the pattern, and draw a flow chart for your loop inside of unlockcombo_lock. 
 
 Once you are comfortable with the flow, code the function. Keep it simple!
 
-#### Testing check_combo_lock (and test_pattern)
+#### Testing unlockcombo_lock (and test_pattern)
 
 To make this more 'realistic' there is a lot of random generation of combinations 
 in the assignment. While a real world issue, this also makes testing very difficult. Also, unlike in the past were most your functions are pure functions, these functions rely heavily on functions that can give variable results. As such, we have provided two functions to help you test interactively. 
@@ -76,11 +76,11 @@ To test interactively, make sure you do the following:
 1. Highlight the imports in the file, and run them in the interactive window
 2. Run `get_single_combo()` in the interactive shell.
    1. This will return information about the lock you are trying to 'solve'. 
-3. Run `check_combo_lock(0)` in the interactive shell (the ID of a single lock)
+3. Run `unlockcombo_lock(0)` in the interactive shell (the ID of a single lock)
 
 You should be able to see by the return value if the two values match, and the lock was solved! 
 
-You can repeat this process with the pattern lock, but use the functions respective of the pattern lock `get_single_pattern()` and `check_pattern_lock(0)`. Though with
+You can repeat this process with the pattern lock, but use the functions respective of the pattern lock `get_single_pattern()` and `unlockpattern_lock(0)`. Though with
 pattern lock, you may have an intermediate function. 
 
 
@@ -133,13 +133,13 @@ Thankfully, we know the following
 
 Building the X can be a challenge. As such we recommend the following actions.
 
-#### Tips for check_pattern_lock
+#### Tips for unlockpattern_lock
 
 1. Write at least one separate function to build the X with size being the parameter. 
    1. This function you should test as you are writing it! 
    2. It may be easier to build a 'V' and figure out how to add the middle and bottom.
    3. Have a counter of where the 'x' goes that increments / decrements as you progress through the lines building them. 
-2. Write check_pattern_lock calling this function changing the size with each call - until the solution size is found. Don't forget to call only odd numbers with 0 being a special
+2. Write unlockpattern_lock calling this function changing the size with each call - until the solution size is found. Don't forget to call only odd numbers with 0 being a special
 case. 
 
 > [!WARNING]
@@ -175,7 +175,7 @@ You need to submit the following files:
 
 * [jailbreak.py](../src/jailbreak.py)
 * Your Coding Practice file
-* Flow charts included (check_combo_lock, and report one)
+* Flow charts included (unlockcombo_lock, and report one)
 * [Report.md](../Report.md)
 * [README.md](../README.md) (the one with your name in it)
 
@@ -184,10 +184,9 @@ You need to submit the following files:
 
 
 1. Learning (AG)
-   * check_x functions are completed properly
+   * unlock_combo_lock works
 2. Approaching  (AG)
-   * rgb_to_hex_x functions completed properly
-   * get_fails completed properly
+   * unlock_pattern_lock works
    * passes PEP8 style check
 3. Meets  (MG)
    * Used loops to generate the pattern.
